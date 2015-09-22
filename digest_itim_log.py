@@ -1,7 +1,6 @@
 #!/usr/bin/python
 """ ITIM log digester
-2010 (c) Alex Ivkin
-v1.0
+2015 (c) Alex Ivkin v1.2
 
 Usage: python digest_itim_log.py <trace.log|msg.log>
 
@@ -12,6 +11,10 @@ import re,sys,traceback,os,csv
 from xml.dom import minidom
 #import copy
 #import pp     #Parallel Python, see http://www.parallelpython.com
+
+if len(sys.argv)==1:
+    print __doc__
+    sys.exit(1)
 
 filepathandname=os.path.splitext(sys.argv[1])[0]
 digest={'Name':os.path.basename(filepathandname)}
